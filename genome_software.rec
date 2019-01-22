@@ -1,0 +1,32 @@
+Bootstrap: shub
+
+%runscript
+
+%post
+    #ACI mappings so you can access your files.
+    mkdir -p /storage/home
+    mkdir -p /storage/work
+    mkdir -p /gpfs/group
+    mkdir -p /gpfs/scratch
+    mkdir -p /var/spool/torque
+
+    https://github.com/statgen/libStatGen
+    cd libStatGen
+    make all
+    cd ..
+
+    git clone https://github.com/statgen/fastQValidator
+    cd fastQValidator
+    make all
+    cd ..
+
+    git clone https://github.com/sequencing/NxTrim.git
+    cd NxTrim
+    make
+    cd ..
+
+    #this one is just a bunch of python scripts
+    git clone https://github.com/makovalab-psu/RecoverY
+
+    wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.38.zip
+    unzip Trimmomatic-Src-0.38.zip
