@@ -1,4 +1,5 @@
 Bootstrap: shub
+From: centos:centos7
 
 %runscript
 
