@@ -4,14 +4,14 @@ From: centos:centos7
 %runscript
 
 %post
-    #ACI mappings so you can access your files.
+    #ACI mappings
     mkdir -p /storage/home
     mkdir -p /storage/work
     mkdir -p /gpfs/group
     mkdir -p /gpfs/scratch
     mkdir -p /var/spool/torque
 
-    https://github.com/statgen/libStatGen
+    git clone https://github.com/statgen/libStatGen
     cd libStatGen
     make all
     cd ..
