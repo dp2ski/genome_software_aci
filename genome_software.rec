@@ -4,6 +4,9 @@ From: centos:centos7
 %runscript
 
 %post
+    yum -y update && yum -y upgrade
+    yum -y install git
+
     #ACI mappings
     mkdir -p /storage/home
     mkdir -p /storage/work
