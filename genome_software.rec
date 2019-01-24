@@ -5,6 +5,7 @@ From: centos:centos7
 
 %post
     yum -y update && yum -y upgrade
+    yum groupinstall "Development Tools"
     yum -y install git g++ zlib-devel libqt4-devel libgl1-mesa-dev libtiff-devel gcc make zip
     yum install -y openssl-devel sqlite-devel bzip2-devel xz-libs build-essential kernel-headers kernel-devel
     #ACI mappings
