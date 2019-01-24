@@ -4,10 +4,30 @@ From: centos:centos7
 %runscript
 
 %post
-    yum -y update && yum -y upgrade
-    yum groupinstall "Development Tools"
-    yum -y install git g++ zlib-devel libqt4-devel libgl1-mesa-dev libtiff-devel gcc make zip
-    yum install -y openssl-devel sqlite-devel bzip2-devel xz-libs build-essential kernel-headers kernel-devel
+    # commands to be executed inside container during bootstrap
+    # add python and install some packages
+    yum update -y
+    yum install -y epel-release
+    yum install -y terminator
+    yum install -y centos-release-scl
+    yum install -y vte-devel
+    yum install -y vte291-devel
+    yum install -y vte-profile
+#    yum -y install devtoolset-7
+    yum install -y devtoolset-7-gcc*
+    scl enable devtoolset-7 bash
+    yum -y groups install "Development Tools"
+#    yum -y groups install "GNOME Desktop"
+    yum -y groups install "Base"
+#    yum -y groups install "X Window System" "Desktop" "Fonts"
+    yum -y install git cmake gcc-c++ gcc binutils \
+    libX11-devel libXpm-devel libXft-devel libXext-devel
+    yum -y install gcc-gfortran openssl-devel pcre-devel \
+    mesa-libGL-devel mesa-libGLU-devel glew-devel ftgl-devel mysql-devel \
+    fftw-devel cfitsio-devel graphviz-devel \
+    avahi-compat-libdns_sd-devel libldap-dev python-devel \
+    libxml2-devel gsl-devel
+
     #ACI mappings
     mkdir -p /storage/home
     mkdir -p /storage/work
