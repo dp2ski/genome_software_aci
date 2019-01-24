@@ -3,6 +3,18 @@ From: centos:centos7
 
 %runscript
 
+%apprun fastQvalidator
+exec /fastQvalidator/bin/fastQvalidator "$@"
+
+%apprun NxTrim
+exec /NxTrim/nxtrim "$@"
+
+%apprun RecoverY
+exec python /RecoverY/recoverY.py "$@"
+
+%apprun Trimmomatic
+exec /Trimmomatic-0.38/trimmomatic-0.38.jar
+
 %post
     # commands to be executed inside container during bootstrap
     # add python and install some packages
@@ -53,3 +65,4 @@ From: centos:centos7
 
     wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.38.zip
     unzip Trimmomatic-0.38.zip
+    yum -y install java-1.8.0-openjdk     
