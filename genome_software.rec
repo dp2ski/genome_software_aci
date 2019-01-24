@@ -6,6 +6,7 @@ From: centos:centos7
 %post
     # commands to be executed inside container during bootstrap
     # add python and install some packages
+    # taken from one of will's singularity recipies
     yum update -y
     yum install -y epel-release
     yum install -y terminator
@@ -13,13 +14,10 @@ From: centos:centos7
     yum install -y vte-devel
     yum install -y vte291-devel
     yum install -y vte-profile
-#    yum -y install devtoolset-7
     yum install -y devtoolset-7-gcc*
     scl enable devtoolset-7 bash
     yum -y groups install "Development Tools"
-#    yum -y groups install "GNOME Desktop"
     yum -y groups install "Base"
-#    yum -y groups install "X Window System" "Desktop" "Fonts"
     yum -y install git cmake gcc-c++ gcc binutils \
     libX11-devel libXpm-devel libXft-devel libXext-devel
     yum -y install gcc-gfortran openssl-devel pcre-devel \
@@ -54,4 +52,4 @@ From: centos:centos7
     git clone https://github.com/makovalab-psu/RecoverY
 
     wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.38.zip
-    unzip Trimmomatic-Src-0.38.zip
+    unzip Trimmomatic-0.38.zip
