@@ -4,7 +4,7 @@ From: centos:centos7
 %runscript
 
 %apprun fastQvalidator
-exec /fastQvalidator/bin/fastQvalidator "$@"
+exec /fastQvalidator/bin/fastQValidator "$@"
 
 %apprun NxTrim
 exec /NxTrim/nxtrim "$@"
@@ -13,7 +13,7 @@ exec /NxTrim/nxtrim "$@"
 exec python /RecoverY/recoverY.py "$@"
 
 %apprun Trimmomatic
-exec /Trimmomatic-0.38/trimmomatic-0.38.jar
+exec java -jar /Trimmomatic-0.38/trimmomatic-0.38.jar
 
 %post
     # commands to be executed inside container during bootstrap
@@ -37,6 +37,11 @@ exec /Trimmomatic-0.38/trimmomatic-0.38.jar
     fftw-devel cfitsio-devel graphviz-devel \
     avahi-compat-libdns_sd-devel libldap-dev python-devel \
     libxml2-devel gsl-devel
+    yum -y install python-pip
+    pip install numpy
+    pip install biopython
+    pip install matplotlib
+    pip install seaborn
 
     #ACI mappings
     mkdir -p /storage/home
