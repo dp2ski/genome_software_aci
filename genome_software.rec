@@ -5,9 +5,7 @@ From: centos:centos7
 
 %post
     yum -y update && yum -y upgrade
-    yum -y install git
-    yum -y install make
-    yum -y install zip
+    yum -y install git gcc g++ make zip 
 
     #ACI mappings
     mkdir -p /storage/home
