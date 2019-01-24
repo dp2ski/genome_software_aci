@@ -5,10 +5,6 @@ From: centos:centos7
 
 %post
     yum -y update && yum -y upgrade
-    yum install -y devtoolset-7-gcc*
-    scl enable devtoolset-7 bash
-    yum -y groups install "Development Tools"
-    yum -y groups install "Base"
     yum -y install git g++ zlib-devel libqt4-devel libgl1-mesa-dev libtiff-devel gcc make zip
     yum install -y openssl-devel sqlite-devel bzip2-devel xz-libs build-essential kernel-headers kernel-devel
     #ACI mappings
