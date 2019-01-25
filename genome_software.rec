@@ -3,8 +3,8 @@ From: centos:centos7
 
 %runscript
 
-%apprun fastQvalidator
-exec /fastQvalidator/bin/fastQValidator "$@"
+%apprun fastQValidator
+exec /fastQValidator/bin/fastQValidator "$@"
 
 %apprun NxTrim
 exec /NxTrim/nxtrim "$@"

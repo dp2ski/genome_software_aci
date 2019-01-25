@@ -15,8 +15,8 @@ Trimmomatic
 whatis('Description: applications for genome assemblimg')
 whatis('singularity pull shub://dp2ski/genome_software_aci:rec')
 unsetenv("LD_PRELOAD")
-local fastQvalidtor = [==[
-/usr/bin/singularity run --app fastQvalidtor /path/to/singularity/image "$@";
+local fastQValidator = [==[
+/usr/bin/singularity run --app fastQValidator /path/to/singularity/image "$@";
 ]==]
 
 local NxTrim = [==[
@@ -31,7 +31,7 @@ local Trimmomatic = [==[
 /usr/bin/singularity run --app Trimmomatic /path/to/singularity/image "$@";
 ]==]
 
-set_shell_function("fastQvalidtor",fastQvalidtor,fastQvalidtor)
+set_shell_function("fastQValidator",fastQValidator,fastQValidator)
 set_shell_function("NxTrim",NxTrim,NxTrim)
 set_shell_function("RecoverY",RecoverY,RecoverY)
 set_shell_function("Trimmomatic",Trimmomatic,Trimmomatic)
