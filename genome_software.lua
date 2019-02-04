@@ -31,7 +31,12 @@ local Trimmomatic = [==[
 /usr/bin/singularity run --app Trimmomatic /path/to/singularity/image "$@";
 ]==]
 
+local Jelly = [==[
+/usr/bin/singularity run --app PBJelly /path/to/singularity/image "$@";
+]==]
+
 set_shell_function("fastQValidator",fastQValidator,fastQValidator)
 set_shell_function("NxTrim",NxTrim,NxTrim)
 set_shell_function("RecoverY",RecoverY,RecoverY)
 set_shell_function("Trimmomatic",Trimmomatic,Trimmomatic)
+set_shell_function("Jelly",Jelly,Jelly)
