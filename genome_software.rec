@@ -3,6 +3,10 @@ From: centos:centos7
 
 %runscript
 
+%environment
+    export PATH=$PATH:/PBSuite_15.8.24/
+    export PYTHONPATH=$PYTHONPATH:/PBSuite_15.8.24/
+
 %apprun fastQValidator
 exec /fastQValidator/bin/fastQValidator "$@"
 
